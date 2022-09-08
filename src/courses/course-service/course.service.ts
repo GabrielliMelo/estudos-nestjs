@@ -22,7 +22,7 @@ export class CourseService {
     if (!course) {
       throw new HttpException(`CURSO ${id} not found`, HttpStatus.NOT_FOUND);
     }
-
+    console.log(course);
     return course;
   }
 
