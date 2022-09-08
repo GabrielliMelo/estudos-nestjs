@@ -29,9 +29,10 @@ export class CoursesController {
   }
 
   @Post()
-  @HttpCode(HttpStatus.NO_CONTENT)
-  create(@Body() createCourseDto: CreateCourseDto) {
-    return this.courseService.create(createCourseDto);
+  // @HttpCode(HttpStatus.NO_CONTENT)
+  create(@Body() createCourseDto: CreateCourseDto, @Res() res) {
+    this.courseService.create(createCourseDto);
+    return res.json({ data: createCourseDto });
   }
 
   @Patch(':id')
